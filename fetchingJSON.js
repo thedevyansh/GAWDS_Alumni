@@ -18,14 +18,12 @@ request.onload = function() {
 
 	populateContent(jsonObj);
 
-	console.log(jsonObj);
 }
 
 
 function populateContent(jsonObj)
 {
 	let noOfAlumni = (jsonObj['feed']['entry'].length)/5 - 1;
-	console.log(noOfAlumni);
 	
 	for (let i = 1; i <= noOfAlumni; i++ )
 	{
@@ -41,10 +39,14 @@ function populateContent(jsonObj)
 		const linkName = document.createElement('a');
 		const batch = document.createElement('p');
 
-	/* ----------------------------------------------------------------*/
+	/* ---------------------------------------------------------------------*/
 
 	    image.src = jsonObj['feed']['entry'][i*5 + 1]['content']['$t'];
+
+	    image.alt = jsonObj['feed']['entry'][i*5]['content']['$t'];
+
 	    linkImage.href = jsonObj['feed']['entry'][i*5 + 3]['content']['$t'];
+
 	    linkImage.target = '_blank';
 
 	    linkImage.appendChild(image);
@@ -52,6 +54,7 @@ function populateContent(jsonObj)
 	    card.appendChild(profile_image_container);
 
 	    linkName.href = jsonObj['feed']['entry'][i*5 + 3]['content']['$t'];
+
 	    linkName.target = '_blank';
 
 	    let name = document.createTextNode(jsonObj['feed']['entry'][i*5]['content']['$t']);
@@ -70,7 +73,7 @@ function populateContent(jsonObj)
 
 	    content.appendChild(card);
 
-	/* ----------------------------------------------------------------*/	
+	/* -----------------------------------------------------------------------*/	
 
 		card.setAttribute('class', 'card');
 		profile_image_container.setAttribute('class', 'profile-image-container');
