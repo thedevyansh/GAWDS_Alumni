@@ -2,7 +2,7 @@
 const content = document.querySelector('#content');
 
 const requestURL = 
-'https://spreadsheets.google.com/feeds/cells/12nyW3c13kotCw5C1Vd1LUcH6wkjycymsXbic4qV2NBk/od6/public/values?alt=json';
+'https://spreadsheets.google.com/feeds/cells/1EdpqMyebJRj-j7gFC5sw38zCWRxeiF9x1uxDYv3iqaE/od6/public/values?alt=json';
 
 const request = new XMLHttpRequest();
 
