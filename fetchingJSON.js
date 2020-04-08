@@ -27,17 +27,17 @@ function populateContent(jsonObj)
 	
 	for (let i = 1; i <= noOfAlumni; i++ )
 	{
-		const card = document.createElement('div');
-		const profile_image_container = document.createElement('div');
-		const profile_image_back = document.createElement('div');
-		const profile_name = document.createElement('div');
-		const profile_title = document.createElement('div');
+	    const card = document.createElement('div');
+	    const profile_image_container = document.createElement('div');
+	    const profile_image_back = document.createElement('div');
+	    const profile_name = document.createElement('div');
+	    const profile_title = document.createElement('div');
 
-		const linkImage = document.createElement('a');
-		const image = document.createElement('img');
+            const linkImage = document.createElement('a');
+       	    const image = document.createElement('img');
 
-		const linkName = document.createElement('a');
-		const batch = document.createElement('p');
+    	    const linkName = document.createElement('a');
+	    const batch = document.createElement('p');
 
 	/* ---------------------------------------------------------------------*/
 
@@ -63,7 +63,7 @@ function populateContent(jsonObj)
 	    batch.textContent = jsonObj['feed']['entry'][i*6 + 5]['content']['$t'];
 
 	    let title = document.createTextNode(jsonObj['feed']['entry'][i*6 + 3]['content']['$t']);
-        profile_title.appendChild(title);
+            profile_title.appendChild(title);
 
 	    profile_name.appendChild(linkName);
 	    profile_name.appendChild(batch);
@@ -75,11 +75,11 @@ function populateContent(jsonObj)
 
 	/* -----------------------------------------------------------------------*/	
 
-		card.setAttribute('class', 'card');
-		profile_image_container.setAttribute('class', 'profile-image-container');
-        profile_image_back.setAttribute('class', 'profile-image-back');
-        profile_name.setAttribute('class', 'profile-name');
-        profile_title.setAttribute('class', 'profile-title');
+	    card.setAttribute('class', 'card');
+	    profile_image_container.setAttribute('class', 'profile-image-container');
+            profile_image_back.setAttribute('class', 'profile-image-back');
+            profile_name.setAttribute('class', 'profile-name');
+            profile_title.setAttribute('class', 'profile-title');
 	}
 
 }
