@@ -2,7 +2,7 @@
 const content = document.querySelector('#content');
 
 const requestURL = 
-'https://spreadsheets.google.com/feeds/cells/1EdpqMyebJRj-j7gFC5sw38zCWRxeiF9x1uxDYv3iqaE/od6/public/values?alt=json';
+'https://spreadsheets.google.com/feeds/cells/1DmQG7l-C4mlp3puiogcGWHiqV4Ru9rNtCLZOqJ2fr9Q/1/public/values?alt=json';
 
 const request = new XMLHttpRequest();
 
@@ -23,7 +23,7 @@ request.onload = function() {
 
 function populateContent(jsonObj)
 {
-	let noOfAlumni = (jsonObj['feed']['entry'].length)/5 - 1;
+	let noOfAlumni = (jsonObj['feed']['entry'].length)/6 - 1;
 	
 	for (let i = 1; i <= noOfAlumni; i++ )
 	{
@@ -41,11 +41,11 @@ function populateContent(jsonObj)
 
 	/* ---------------------------------------------------------------------*/
 
-	    image.src = jsonObj['feed']['entry'][i*5 + 1]['content']['$t'];
+	    image.src = jsonObj['feed']['entry'][i*6 + 2]['content']['$t'];
 
-	    image.alt = jsonObj['feed']['entry'][i*5]['content']['$t'];
+	    image.alt = jsonObj['feed']['entry'][i*6 + 1]['content']['$t'];
 
-	    linkImage.href = jsonObj['feed']['entry'][i*5 + 3]['content']['$t'];
+	    linkImage.href = jsonObj['feed']['entry'][i*6 + 4]['content']['$t'];
 
 	    linkImage.target = '_blank';
 
@@ -53,16 +53,16 @@ function populateContent(jsonObj)
 	    profile_image_container.appendChild(linkImage);
 	    card.appendChild(profile_image_container);
 
-	    linkName.href = jsonObj['feed']['entry'][i*5 + 3]['content']['$t'];
+	    linkName.href = jsonObj['feed']['entry'][i*6 + 4]['content']['$t'];
 
 	    linkName.target = '_blank';
 
-	    let name = document.createTextNode(jsonObj['feed']['entry'][i*5]['content']['$t']);
+	    let name = document.createTextNode(jsonObj['feed']['entry'][i*6 + 1]['content']['$t']);
 	    linkName.appendChild(name);
 
-	    batch.textContent = jsonObj['feed']['entry'][i*5 + 4]['content']['$t'];
+	    batch.textContent = jsonObj['feed']['entry'][i*6 + 5]['content']['$t'];
 
-	    let title = document.createTextNode(jsonObj['feed']['entry'][i*5 + 2]['content']['$t']);
+	    let title = document.createTextNode(jsonObj['feed']['entry'][i*6 + 3]['content']['$t']);
         profile_title.appendChild(title);
 
 	    profile_name.appendChild(linkName);
